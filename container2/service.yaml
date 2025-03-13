@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-service
+spec:
+  type: ClusterIP
+  selector:
+    app: calc-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 7000

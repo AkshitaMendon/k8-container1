@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/assignment-k8s/K8s/container2', '.']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/assignment-k8s/K8s/container2']
+
+images:
+- 'us-central1-docker.pkg.dev/assignment-k8s/K8s/container2'

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calc-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calc-service
+  template:
+    metadata:
+      labels:
+        app: calc-service
+    spec:
+      containers:
+      - name: calc-service
+        image: us-central1-docker.pkg.dev/assignment-k8s/calc-service
+        ports:
+        - containerPort: 5001
+        volumeMounts:
+        - mountPath: "/akshita_PV_dir"
+          name: persistent-storage
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: my-pvc

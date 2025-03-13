@@ -7,3 +7,6 @@ steps:
 
 images:
 - 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

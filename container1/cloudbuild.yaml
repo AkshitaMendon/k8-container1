@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest', '-f', 'container1/Dockerfile', 'container1:latest']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest', '-f', 'container1/Dockerfile', 'container1']
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest']

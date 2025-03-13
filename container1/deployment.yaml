@@ -16,7 +16,7 @@ spec:
       - name: api-service
         image: us-central1-docker.pkg.dev/assignment-k8s/api-service
         ports:
-        - containerPort: 5000
+        - containerPort: 6000
         volumeMounts:
         - mountPath: "/akshita_PV_dir"
           name: persistent-storage

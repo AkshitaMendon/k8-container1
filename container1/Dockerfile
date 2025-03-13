@@ -10,8 +10,5 @@ COPY app.py requirements.txt /app/
 # Install dependencies
 RUN pip install -r requirements.txt
 
-# Expose port
-EXPOSE 6000
-
 # Run application
 CMD ["python", "app.py"]

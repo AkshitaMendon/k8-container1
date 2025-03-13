@@ -1,12 +1,22 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1', '-f', 'container1/Dockerfile', 'container1']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest', '-f', 'container1/Dockerfile', 'container1:latest']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1']
+  args: ['push', 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest']
+
+- name: "gcr.io/cloud-builders/kubectl"
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+      gcloud container clusters get-credentials k8-cluster --zone us-central1
+      kubectl apply -f pvc.yaml
+      kubectl apply -f container1-deployment.yaml
+      kubectl apply -f container1-service.yaml
 
 images:
-- 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1'
+- 'us-central1-docker.pkg.dev/kubernetes-453620/k8-assignment/container1:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY

@@ -59,7 +59,7 @@ def calculate():
 
     try:
     
-        response = requests.post('http://container2:7000/compute', json={"file": selected_file, "product": product})
+        response = requests.post('http://container2-service/compute', json={"file": selected_file, "product": product})
         return jsonify(response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error communicating with Container 2: {str(e)}"}), 500

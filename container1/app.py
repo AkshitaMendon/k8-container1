@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-# Persistent Volume directory path
+# Persistent Volume directory
 PV_DIR = "/akshita_PV_dir"
 
 
